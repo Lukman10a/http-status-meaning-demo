@@ -16,7 +16,7 @@ A comprehensive, multilingual web application for looking up HTTP status codes, 
 
 ## Live Demo
 
-Visit the live demo at: [https://http-status-meaning-demo.vercel.app](https://http-status-meaning-demo.vercel.app)
+Visit the live demo at: [https://httpstatusdemo.vercel.app/](https://http-status-meaning-demo.vercel.app)
 
 ## Getting Started
 
