@@ -1,0 +1,26 @@
+{
+  "name": "http-status-meaning-demo",
+  "version": "1.0.0",
+  "description": "Demo website for the http-status-meaning package",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [
+    "http",
+    "status",
+    "codes",
+    "demo"
+  ],
+  "author": "Lukman Abdulrauf",
+  "license": "MIT",
+  "dependencies": {
+    "http-status-meaning": "^1.0.1",
+    "next": "^14.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
