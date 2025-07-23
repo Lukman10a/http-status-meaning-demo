@@ -7,6 +7,7 @@ import {
   FALLBACK_USE_CASES_TRANSLATIONS,
   UI_TRANSLATIONS 
 } from '../data';
+import React from 'react';
 
 // Type assertion for the package since it doesn't have proper TypeScript definitions
 const httpStatusMeaningTyped = httpStatusMeaning as any;
