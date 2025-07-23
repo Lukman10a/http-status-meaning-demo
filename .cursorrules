@@ -1,0 +1,180 @@
+# HTTP Status Meaning Demo - Project Intelligence
+
+## Project Overview
+This is a Next.js demo application for the `http-status-meaning` npm package. It's a multilingual web app for looking up HTTP status codes with meanings, categories, and use cases.
+
+## Key Architecture Patterns
+
+### Safe Wrapper Pattern
+The application uses a comprehensive safe wrapper around the `http-status-meaning` package:
+- All package calls are wrapped in try-catch blocks
+- Extensive fallback data is embedded for reliability
+- Application continues working even if package fails
+- Graceful degradation to English when translations unavailable
+
+### Fallback Data System
+Large amounts of fallback data are embedded directly in the code:
+- `FALLBACK_TRANSLATIONS`: Status code meanings in 10 languages
+- `FALLBACK_CATEGORY_TRANSLATIONS`: Category names translated
+- `FALLBACK_USE_CASES`: Common use cases for popular codes
+- `FALLBACK_USE_CASES_TRANSLATIONS`: Translated use cases
+
+### Client-Side Hydration Pattern
+Proper handling of SSR/CSR differences:
+- `clientSide` state tracks component mounting
+- Language dropdown only renders after hydration
+- Prevents hydration mismatches
+
+## Code Organization
+
+### Large Component Approach
+- Main component (`pages/index.js`) is 739 lines
+- Contains all logic, state, and UI in one file
+- Simple but could benefit from refactoring
+- All fallback data embedded in this file
+
+### API Route Pattern
+Both API routes follow identical patterns:
+- Extract and validate query parameters
+- Use safe wrapper functions
+- Return JSON with error handling
+- Consistent error response format
+
+## Development Preferences
+
+### Styling Approach
+- CSS Modules for component-specific styles
+- Global CSS for application-wide styles
+- Orange (#ff9800) and black color scheme
+- Responsive design with mobile-first approach
+
+### Error Handling Philosophy
+- Error-first design with graceful degradation
+- User-friendly error messages
+- Extensive logging for debugging
+- Fallback to English when language unavailable
+
+### Performance Considerations
+- Bundle size optimization important
+- Fallback data increases initial bundle
+- Consider dynamic imports for language data
+- Mobile performance is priority
+
+## Technical Constraints
+
+### Dependencies
+- Next.js 14.0.3
+- React 18.2.0
+- http-status-meaning 1.0.1
+- No TypeScript (JavaScript project)
+
+### Browser Support
+- Modern browsers (ES6+)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+- Responsive design required
+
+### Deployment
+- Optimized for Vercel deployment
+- Static generation for main page
+- API routes for dynamic functionality
+- No environment variables required
+
+## Common Patterns
+
+### Language Handling
+- Always lowercase language codes for consistency
+- Check for undefined language and default to 'en'
+- Use fallback translations when package fails
+- Real-time language switching with immediate updates
+
+### State Management
+- React useState for all state
+- Immediate updates for language changes
+- Validation before API calls
+- Error states stored in result object
+
+### Input Validation
+- Status codes must be numeric
+- Descriptions must be non-empty
+- Language codes validated against supported list
+- Clear error messages for invalid inputs
+
+## Known Issues and Considerations
+
+### Technical Debt
+- Large component could be refactored into smaller pieces
+- Extensive fallback data increases bundle size
+- No automated testing implemented
+- Could benefit from TypeScript migration
+
+### Performance Optimizations
+- Consider dynamic imports for language data
+- Optimize fallback data structure
+- Implement code splitting for large component
+- Add loading states for better UX
+
+### Future Enhancements
+- Component refactoring for maintainability
+- Enhanced error handling with specific error types
+- Advanced search with fuzzy matching
+- User preferences for language and search history
+
+## Development Workflow
+
+### Local Development
+- `npm run dev` for development server
+- `npm run build` for production build
+- `npm run lint` for code linting
+- No environment setup required
+
+### Testing Strategy
+- Manual testing across browsers and devices
+- API endpoint testing with various inputs
+- Language functionality testing
+- Error scenario testing
+
+### Deployment Process
+- Automatic deployment to Vercel
+- Connected to GitHub repository
+- Build optimization for production
+- Performance monitoring via Vercel analytics
+
+## Project Intelligence
+
+### User Experience Focus
+- Intuitive interface with clear navigation
+- Fast response times for all interactions
+- Mobile-optimized design
+- Accessibility considerations
+
+### Reliability Priority
+- Application must work even if package fails
+- Extensive fallback system ensures availability
+- Graceful error handling throughout
+- No single points of failure
+
+### Educational Value
+- Helps developers understand HTTP status codes
+- Provides practical use cases
+- Multilingual support for global reach
+- Clear, informative interface
+
+## Code Style Preferences
+
+### JavaScript Patterns
+- Functional components with hooks
+- Destructuring for props and state
+- Arrow functions for event handlers
+- Template literals for string interpolation
+
+### CSS Patterns
+- CSS Modules for component scoping
+- Semantic class names
+- Mobile-first responsive design
+- Consistent color variables
+
+### Error Handling Patterns
+- Try-catch blocks around all external calls
+- Console logging for debugging
+- User-friendly error messages
+- Graceful fallbacks to default values 

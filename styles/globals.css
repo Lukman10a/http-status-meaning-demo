@@ -1,19 +1,62 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #f9f9f9;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: linear-gradient(135deg, #fff9f5 0%, #fff4ec 50%, #fff0e6 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    color: #ff944c;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-* {
-  box-sizing: border-box;
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ff944c;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff8c42;
+  }
+
+  /* Focus styles for accessibility */
+  button:focus,
+  input:focus,
+  select:focus {
+    outline: 2px solid #ff944c;
+    outline-offset: 2px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,7 +64,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: #121212;
+    color: #f8f9fa;
+    background: linear-gradient(135deg, #fff9f5 0%, #fff4ec 50%, #fff0e6 100%);
   }
 } 
